@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abdoctor v21</title>
+  <style>
+    :root {
+      --px: 1px;
+      --grey: #888;
+      --moon-animation-time: 20s;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+      background: radial-gradient(circle at center, #000 0%, #02040f 100%);
+    }
+
+    .stars {
+      background: url('https://i.ibb.co/Fb5DY3S/star-bg.jpg') repeat;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      animation: starScroll 100s linear infinite;
+      z-index: -3;
+      opacity: 0.6;
+    }
+
+    @keyframes starScroll {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-50%, -50%); }
+    }
+
+    .Moon {
+      background-color: var(--grey);
+      height: calc(200 * var(--px));
+      width: calc(200 * var(--px));
+      border-radius: 50%;
+      box-shadow: 0 0 60px 20px rgba(255, 255, 255, 0.3);
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/FullMoon2010.jpg/600px-FullMoon2010.jpg');
+      background-size: calc(430 * var(--px));
+      background-position: left;
+      background-repeat: no-repeat;
+      animation: moonGlow var(--moon-animation-time) ease-in-out infinite;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+
+    @keyframes moonGlow {
+      0%, 100% {
+        box-shadow: 0 0 60px 20px rgba(255, 255, 255, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 90px 30px rgba(255, 255, 255, 0.6);
+      }
+    }
+
+    .text-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ffffff;
+      font-size: 2.8rem;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+      z-index: 2;
+      padding: 20px;
+    }
+
+    .emojis {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .text-overlay {
+        font-size: 1.5rem;
+        padding: 10px;
+      }
+
+      .Moon {
+        height: 150px;
+        width: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="Moon"></div>
+  <div class="text-overlay">
+    <span class="emojis">🚀✨🩺🪐</span>
+    Abdoctor has been updated,<br> welcome to the 21st version
+  </div>
+</body>
+</html>
